@@ -1,0 +1,44 @@
+<h5>Users List</h5>
+
+<div class="col-md-12">
+  <div class="card card-container">
+    <table class="table table">
+      <thead class="bg-primary text-white">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>User Name</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.username }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editUser(user)">
+              Edit
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteUser(user)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <button
+        class="btn btn-info"
+        style="margin-left: auto; display: flex"
+        (click)="navigateToRegister()"
+      >
+        Back
+      </button>
+    </div>
+  </div>
+</div>

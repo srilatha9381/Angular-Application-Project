@@ -1,0 +1,163 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <div class="form-group">
+        <label for="firstName" class="label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          formControlName="firstName"
+        />
+        <p
+          class="help is-danger"
+          *ngIf="
+            submitted && registerForm.get('firstName').hasError('required')
+          "
+        >
+          First name is required.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName" class="label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          formControlName="lastName"
+        />
+        <p
+          class="help is-danger"
+          *ngIf="submitted && registerForm.get('lastName').hasError('required')"
+        >
+          Last name is required.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="username" class="label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          formControlName="username"
+        />
+        <p
+          class="help is-danger"
+          *ngIf="submitted && registerForm.get('username').hasError('required')"
+        >
+          Username is required.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          formControlName="password"
+        />
+        <p
+          class="help is-danger"
+          *ngIf="submitted && registerForm.get('password').hasError('required')"
+        >
+          Password is required.
+        </p>
+      </div>
+
+      <!-- Confirm Password Field -->
+      <div class="form-group">
+        <label for="confirmPassword" class="label">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          formControlName="confirmPassword"
+        />
+        <p
+          class="help is-danger"
+          *ngIf="
+            submitted &&
+            registerForm.get('confirmPassword').hasError('required')
+          "
+        >
+          Confirm Password is required.
+        </p>
+        <p
+          class="help is-danger"
+          *ngIf="
+            submitted &&
+            registerForm.get('confirmPassword').hasError('isMatching')
+          "
+        >
+          Passwords do not match.
+        </p>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email" class="label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          formControlName="email"
+        />
+        <p
+          class="help is-danger"
+          *ngIf="submitted && registerForm.get('email').hasError('required')"
+        >
+          Email is required.
+        </p>
+        <p
+          class="help is-danger"
+          *ngIf="submitted && registerForm.get('email').hasError('email')"
+        >
+          Enter a valid email.
+        </p>
+      </div>
+
+      <!-- Confirm Email Field -->
+      <div class="form-group">
+        <label for="confirmEmail" class="label">Confirm Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="confirmEmail"
+          formControlName="confirmEmail"
+        />
+        <p
+          class="help is-danger"
+          *ngIf="
+            submitted && registerForm.get('confirmEmail').hasError('required')
+          "
+        >
+          Confirm Email is required.
+        </p>
+        <p
+          class="help is-danger"
+          *ngIf="
+            submitted && registerForm.get('confirmEmail').hasError('isMatching')
+          "
+        >
+          Emails do not match.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          style="margin-right: 15px"
+        >
+          Save
+        </button>
+        <button class="btn btn-danger" type="button" (click)="onClear()">
+          Clear
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
